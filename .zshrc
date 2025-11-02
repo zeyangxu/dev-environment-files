@@ -22,6 +22,9 @@ alias tn="tmux new"
 alias tns="tmux new -s"
 alias tks="tmux kill-ses -t"
 
+# Claude Code
+alias cc="claude"
+
 # ---- Zoxide (better cd)
 eval "$(zoxide init zsh)"
 
