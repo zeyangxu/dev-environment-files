@@ -38,6 +38,9 @@ return {
 				colors.fg_gutter = fg_gutter
 				colors.fg_sidebar = fg_dark
 			end,
+			on_highlights = function(hl, c)
+				hl.Folded = { bg = c.bg_highlight, fg = c.fg_gutter }
+			end,
 		})
 
 		vim.cmd("colorscheme tokyonight")

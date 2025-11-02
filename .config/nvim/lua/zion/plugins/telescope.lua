@@ -14,6 +14,17 @@ return {
 		telescope.setup({
 			defaults = {
 				path_display = { "smart" },
+				vimgrep_arguments = {
+					"rg",
+					"--color=never",
+					"--no-heading",
+					"--with-filename",
+					"--line-number",
+					"--column",
+					"--smart-case",
+					"--hidden",
+					"--glob=!.git/",
+				},
 				mappings = {
 					i = {
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
@@ -28,6 +39,8 @@ return {
 				},
 			},
 		})
+
+		-- TODO: test
 
 		telescope.load_extension("fzf")
 

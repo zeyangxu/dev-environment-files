@@ -16,6 +16,18 @@ return {
       todo_comments.jump_prev()
     end, { desc = "Previous todo comment" })
 
-    todo_comments.setup()
+    todo_comments.setup({
+      search = {
+        args = {
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--hidden",
+          "--glob=!.git/",
+        },
+      },
+    })
   end,
 }
