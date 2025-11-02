@@ -155,8 +155,6 @@ Use `ctrl-g h` to view git commits and select commit hash
 
 Use `ctrl-g b` to view git branches and select commit hash
 
-## CLI Tools
-
 ## Vimium config
 
 ```

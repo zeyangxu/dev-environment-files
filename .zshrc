@@ -126,3 +126,13 @@ _fzf_comprun() {
     *)            fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
   esac
 }
+
+# Created by `pipx` on 2025-11-02 10:15:16
+export PATH="$PATH:/Users/zebxu/.local/bin"
+
+# For Neovim-remote
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+  alias nvim='nvr -cc split --remote-wait +"set bufhidden=wipe"'
+  export EDITOR="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+  export VISUAL="$EDITOR"
+fi

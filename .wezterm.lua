@@ -46,4 +46,8 @@ config.window_background_opacity = 0.8
 config.macos_window_background_blur = 10
 
 -- and finally, return the configuration to wezterm
+config.keys = {
+  {key="Enter", mods="SHIFT", action=wezterm.action{SendString="\x1b\r"}},
+}
+
 return config
