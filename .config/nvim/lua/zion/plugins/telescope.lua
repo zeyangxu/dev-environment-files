@@ -22,6 +22,11 @@ return {
           },
         },
       },
+      pickers = {
+        find_files = {
+          hidden = true, -- show hidden files
+        },
+      },
     })
 
     telescope.load_extension("fzf")

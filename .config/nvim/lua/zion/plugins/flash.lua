@@ -18,11 +18,11 @@ return {
     { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
     -- Fast visual select
     { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-    -- yank, delete with moving the cursor first
+    -- Remote yank, delete without moving the cursor first
     { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-    -- Fast yank, delete using Treesitter
+    -- Remote yank, delete using Treesitter
     { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-    -- Search jump
+    -- Search jump after grep search a keyword
     { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
   },
 }
