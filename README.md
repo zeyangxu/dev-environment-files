@@ -2,14 +2,38 @@
 
 ## Prerequisites
 
-Install WezTerm, powerline10k, Tmux and Neovim
+Install WezTerm, Tmux and Neovim
 
 ```bash
 brew install --cask wezterm
 
-brew install font-meslo-lg-nerd-font tmux neovim
+brew tap homebrew/cask-fonts
 
+brew install font-meslo-lg-nerd-font tmux neovim ripgrep eza zoxide bash
+```
+
+Install TPM
+
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+Setup powerline
+
+```bash
 brew install powerlevel10k
+```
+
+Setup zsh-autosuggestions
+
+```bash
+brew install zsh-autosuggestions
+```
+
+Setup zsh-syntax-highlighting
+
+```bash
+brew install zsh-syntax-highlighting
 ```
 
 Install Yazi
@@ -46,4 +70,13 @@ git clone https://github.com/BennyOe/tokyo-night.yazi.git ~/dotfiles/yazi/flavor
 
 # Windows
 git clone https://github.com/BennyOe/tokyo-night.yazi.git %AppData%\yazi\config\flavors\tokyo-night.yazi
+```
+
+## Vimium config
+
+```
+# Insert your preferred key mappings here.
+map t Vomnibar.activateTabSelection
+map T createTab
+map gb visitPreviousTab
 ```
