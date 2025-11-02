@@ -121,7 +121,7 @@ Install Yazi theme
 
 ```bash
 # Linux/macOS
-git clone https://github.com/BennyOe/tokyo-night.yazi.git ~/dotfiles/yazi/flavors/tokyo-night.yazi
+git clone https://github.com/BennyOe/tokyo-night.yazi.git ~/dotfiles/.config/yazi/flavors/tokyo-night.yazi
 
 # Windows
 git clone https://github.com/BennyOe/tokyo-night.yazi.git %AppData%\yazi\config\flavors\tokyo-night.yazi
