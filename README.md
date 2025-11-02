@@ -133,6 +133,12 @@ Update Bat theme
 bat cache --build
 ```
 
+Install Tmux plugins
+
+```
+CTRL-A followed by Shift-I
+```
+
 ## Basic Usages
 
 ### Yazi file management

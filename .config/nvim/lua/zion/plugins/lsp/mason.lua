@@ -11,11 +11,12 @@ return {
 			"pyright",
 			"eslint",
 
+			-- Linters
+			"eslint",
+
 			-- Formatters
-			"prettier",
+			"prettierd",
 			"stylua",
-			"isort",
-			"black",
 		},
 	},
 	dependencies = {

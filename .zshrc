@@ -136,3 +136,7 @@ if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
   export EDITOR="nvr -cc split --remote-wait +'set bufhidden=wipe'"
   export VISUAL="$EDITOR"
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
