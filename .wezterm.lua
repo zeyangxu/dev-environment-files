@@ -36,7 +36,11 @@ config.colors = {
 	},
 }
 
-config.font = wezterm.font("MesloLGS Nerd Font Mono")
+config.font = wezterm.font_with_fallback({
+	"MesloLGS Nerd Font Mono",
+	"PingFang SC",  -- macOS 中文字体
+	"Hiragino Sans GB",  -- 备选中文字体
+})
 config.font_size = 14
 
 config.enable_tab_bar = false

@@ -55,6 +55,9 @@ return {
         theme = my_lualine_theme,
       },
       sections = {
+        lualine_c = {
+          { 'filename', path = 1 }  -- 0=name, 1=relative, 2=absolute, 3=absolute+shortened
+        },
         lualine_x = {
           {
             lazy_status.updates,

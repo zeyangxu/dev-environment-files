@@ -1,15 +1,16 @@
 return {
 	"lewis6991/gitsigns.nvim",
-	opts = {
-		signs = {
-			add = { text = "+" },
-			change = { text = "|" },
-			delete = { text = "_" },
-			topdelete = { text = "‾" },
-			changedelete = { text = "~" },
-			untracked = { text = "┆" },
-		},
-		current_line_blame = true,
+	config = function()
+		require("gitsigns").setup({
+			signs = {
+				add = { text = "▎", linehl = "GitSignsAddLn" },
+				change = { text = "▎", linehl = "GitSignsChangeLn" },
+				delete = { text = "▎", linehl = "GitSignsDeleteLn" },
+				topdelete = { text = "▎", linehl = "GitSignsDeleteLn" },
+				changedelete = { text = "▎", linehl = "GitSignsChangeLn" },
+				untracked = { text = "▎", linehl = "GitSignsUntrackedLn" },
+			},
+			current_line_blame = true,
 		on_attach = function(bufnr)
 			local gs = package.loaded.gitsigns
 
@@ -67,5 +68,18 @@ return {
 			end, { desc = "Diff this ~" })
 			map("n", "<leader>ho", "<cmd>diffoff | only<cr>", { desc = "Diff off" })
 		end,
-	},
+		})
+
+		-- Set bold signs & backgrounds
+		vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#3c8f5a", bold = true })
+		vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#d4a65f", bold = true })
+		vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#d26a6a", bold = true })
+		vim.api.nvim_set_hl(0, "GitSignsUntracked", { fg = "#5f6a8e", bold = true })
+
+		-- Line backgrounds
+		vim.api.nvim_set_hl(0, "GitSignsAddLn", { bg = "#1a2e24" })
+		vim.api.nvim_set_hl(0, "GitSignsChangeLn", { bg = "#2e2715" })
+		vim.api.nvim_set_hl(0, "GitSignsDeleteLn", { bg = "#2e1a1a" })
+		vim.api.nvim_set_hl(0, "GitSignsUntrackedLn", { bg = "#1a1e2e" })
+	end,
 }

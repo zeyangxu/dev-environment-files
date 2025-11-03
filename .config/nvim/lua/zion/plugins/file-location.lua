@@ -3,7 +3,7 @@ return {
 	config = function()
 		local fileLocation = require("nvim-file-location")
 		fileLocation.setup({
-			keymap = "<leader>ll",
+			keymap = "<leader>L",
 			mode = "workdir", -- options: workdir | absolute
 			add_line = true,
 			add_column = false,
@@ -13,13 +13,13 @@ return {
 		local keymap = vim.keymap
 		keymap.set(
 			"n",
-			"<leader>lf",
+			"<leader>lL",
 			"<cmd>lua NvimFileLocation.copy_file_location('absolute', true, false)<cr>",
 			{ desc = "Copy absolute file path" }
 		)
 		keymap.set(
 			"n",
-			"<leader>lF",
+			"<leader>ll",
 			"<cmd>lua NvimFileLocation.copy_file_location('workdir', true, false)<cr>",
 			{ desc = "Copy working directory file path" }
 		)
