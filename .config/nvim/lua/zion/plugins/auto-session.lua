@@ -14,6 +14,15 @@ return {
   ---@type AutoSession.Config
   opts = {
     suppressed_dirs = { "~/", "~/Dev/", "~/Downloads", "~/Documents", "~/Desktop/" },
+    session_lens = {
+      picker_opts = {
+        layout_config = {
+          width = 0.9,
+          height = 0.7,
+        },
+        path_display = { "tail" },
+      },
+    },
     -- log_level = 'debug',
   },
 }
