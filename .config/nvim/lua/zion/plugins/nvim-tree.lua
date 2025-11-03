@@ -32,6 +32,7 @@ return {
       },
       -- change folder arrow icons
       renderer = {
+        full_name = true,
         indent_markers = {
           enable = true,
         },
