@@ -38,20 +38,20 @@ config.colors = {
 
 config.font = wezterm.font_with_fallback({
 	"MesloLGS Nerd Font Mono",
-	"PingFang SC",  -- macOS 中文字体
-	"Hiragino Sans GB",  -- 备选中文字体
+	"PingFang SC", -- macOS 中文字体
+	"Hiragino Sans GB", -- 备选中文字体
 })
 config.font_size = 14
 
 config.enable_tab_bar = false
 
 config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.8
+config.window_background_opacity = 0.9
 config.macos_window_background_blur = 10
 
 -- and finally, return the configuration to wezterm
 config.keys = {
-  {key="Enter", mods="SHIFT", action=wezterm.action{SendString="\x1b\r"}},
+	{ key = "Enter", mods = "SHIFT", action = wezterm.action({ SendString = "\x1b\r" }) },
 }
 
 return config
