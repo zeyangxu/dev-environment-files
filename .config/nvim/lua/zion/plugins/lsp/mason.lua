@@ -11,9 +11,13 @@ return {
 			"pyright",
 			"eslint",
 			"thriftls",
+			"marksman",
+			"jsonls",
+			"yamlls",
 
 			-- Linters
 			"eslint",
+			"markdownlint",
 
 			-- Formatters
 			"prettierd",
