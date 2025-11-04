@@ -7,7 +7,7 @@ return {
 			desc = "Toggle diffview",
 		},
 		{
-			"<leader>gc",
+			"<leader>gD",
 			"<cmd>DiffviewClose<cr>",
 			desc = "Close diffview",
 		},

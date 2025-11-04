@@ -10,6 +10,7 @@ return {
 			"lua_ls",
 			"pyright",
 			"eslint",
+			"thriftls",
 
 			-- Linters
 			"eslint",
