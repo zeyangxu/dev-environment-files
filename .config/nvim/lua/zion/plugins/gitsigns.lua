@@ -60,6 +60,14 @@ return {
 				gs.blame_line({ full = true })
 			end, { desc = "Blame line" })
 			map("n", "<leader>hl", gs.toggle_current_line_blame, { desc = "Toggle line blame" })
+			map("n", "<leader>hc", function()
+				local blame = vim.b.gitsigns_blame_line_dict
+				if blame and blame.sha and blame.sha ~= "00000000" and blame.sha ~= "0000000000000000000000000000000000000000" then
+					vim.cmd("DiffviewOpen " .. blame.sha .. "^.." .. blame.sha)
+				else
+					vim.notify("No commit found for this line", vim.log.levels.WARN)
+				end
+			end, { desc = "Show commit diff" })
 
 			-- Diff
 			map("n", "<leader>hd", gs.diffthis, { desc = "Diff this" })

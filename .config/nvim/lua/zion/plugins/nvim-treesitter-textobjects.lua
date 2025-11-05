@@ -40,12 +40,6 @@ return {
 
 						["ac"] = { query = "@class.outer", desc = "Select outer part of a class" },
 						["ic"] = { query = "@class.inner", desc = "Select inner part of a class" },
-
-						["ao"] = { query = "@object.outer", desc = "Select outer part of a object" },
-						["io"] = { query = "@object.inner", desc = "Select inner part of a object" },
-
-						["al"] = { query = "@array.outer", desc = "Select outer part of a array" },
-						["il"] = { query = "@array.inner", desc = "Select inner part of a array" },
 					},
 				},
 				swap = {

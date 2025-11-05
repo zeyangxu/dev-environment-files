@@ -12,4 +12,21 @@ return {
 			desc = "Close diffview",
 		},
 	},
+	config = function()
+		local actions = require("diffview.actions")
+		require("diffview").setup({
+			keymaps = {
+				view = {
+					{ "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close diffview" } },
+				},
+				file_panel = {
+					{ "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close diffview" } },
+					{ "n", "<cr>", actions.goto_file_edit, { desc = "Open file" } },
+				},
+				file_history_panel = {
+					{ "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close diffview" } },
+				},
+			},
+		})
+	end,
 }

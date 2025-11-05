@@ -38,6 +38,42 @@ return {
 				find_files = {
 					hidden = true, -- show hidden files
 				},
+				git_commits = {
+					mappings = {
+						i = {
+							["<CR>"] = function(prompt_bufnr)
+								local selection = require("telescope.actions.state").get_selected_entry()
+								require("telescope.actions").close(prompt_bufnr)
+								vim.cmd("DiffviewOpen " .. selection.value .. "^.." .. selection.value)
+							end,
+						},
+						n = {
+							["<CR>"] = function(prompt_bufnr)
+								local selection = require("telescope.actions.state").get_selected_entry()
+								require("telescope.actions").close(prompt_bufnr)
+								vim.cmd("DiffviewOpen " .. selection.value .. "^.." .. selection.value)
+							end,
+						},
+					},
+				},
+				git_bcommits = {
+					mappings = {
+						i = {
+							["<CR>"] = function(prompt_bufnr)
+								local selection = require("telescope.actions.state").get_selected_entry()
+								require("telescope.actions").close(prompt_bufnr)
+								vim.cmd("DiffviewOpen " .. selection.value .. "^.." .. selection.value)
+							end,
+						},
+						n = {
+							["<CR>"] = function(prompt_bufnr)
+								local selection = require("telescope.actions.state").get_selected_entry()
+								require("telescope.actions").close(prompt_bufnr)
+								vim.cmd("DiffviewOpen " .. selection.value .. "^.." .. selection.value)
+							end,
+						},
+					},
+				},
 			},
 		})
 
