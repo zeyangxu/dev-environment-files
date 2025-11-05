@@ -171,4 +171,5 @@ map gb visitPreviousTab
 ```
 
 ## TODO
-- [ ] See the diff of a line blame diff
+
+- [x] See the diff of a line blame diff
