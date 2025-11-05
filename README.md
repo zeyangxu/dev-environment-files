@@ -169,3 +169,6 @@ map t Vomnibar.activateTabSelection
 map T createTab
 map gb visitPreviousTab
 ```
+
+## TODO
+- [ ] See the diff of a line blame diff
