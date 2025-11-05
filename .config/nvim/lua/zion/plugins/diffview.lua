@@ -15,6 +15,11 @@ return {
 	config = function()
 		local actions = require("diffview.actions")
 		require("diffview").setup({
+			view = {
+				default = {
+					layout = "diff2_vertical",
+				},
+			},
 			keymaps = {
 				view = {
 					{ "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close diffview" } },
