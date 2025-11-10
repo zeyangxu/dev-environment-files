@@ -30,7 +30,10 @@ return {
 					i = {
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
 						["<C-j>"] = actions.move_selection_next, -- move to next result
-						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+						["<Tab>"] = actions.toggle_selection + actions.move_selection_better, -- mark/unmark + move down
+						["<S-Tab>"] = actions.toggle_selection + actions.move_selection_worse, -- mark/unmark + move up
+						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send marked to qflist
+						["<M-q>"] = actions.add_to_qflist + actions.open_qflist, -- add marked to qflist
 					},
 				},
 			},
@@ -74,6 +77,62 @@ return {
 						},
 					},
 				},
+				git_stash = {
+					mappings = {
+						i = {
+							["<CR>"] = function(prompt_bufnr)
+								local selection = require("telescope.actions.state").get_selected_entry()
+								require("telescope.actions").close(prompt_bufnr)
+								vim.cmd("DiffviewOpen " .. selection.value .. "^.." .. selection.value)
+							end,
+							["<C-a>"] = function(prompt_bufnr)
+								local selection = require("telescope.actions.state").get_selected_entry()
+								require("telescope.actions").close(prompt_bufnr)
+								vim.fn.system("git stash apply " .. selection.value)
+							end,
+							["<C-p>"] = function(prompt_bufnr)
+								local selection = require("telescope.actions.state").get_selected_entry()
+								require("telescope.actions").close(prompt_bufnr)
+								vim.fn.system("git stash pop " .. selection.value)
+							end,
+						},
+						n = {
+							["<CR>"] = function(prompt_bufnr)
+								local selection = require("telescope.actions.state").get_selected_entry()
+								require("telescope.actions").close(prompt_bufnr)
+								vim.cmd("DiffviewOpen " .. selection.value .. "^.." .. selection.value)
+							end,
+							["<C-a>"] = function(prompt_bufnr)
+								local selection = require("telescope.actions.state").get_selected_entry()
+								require("telescope.actions").close(prompt_bufnr)
+								vim.fn.system("git stash apply " .. selection.value)
+							end,
+							["<C-p>"] = function(prompt_bufnr)
+								local selection = require("telescope.actions.state").get_selected_entry()
+								require("telescope.actions").close(prompt_bufnr)
+								vim.fn.system("git stash pop " .. selection.value)
+							end,
+						},
+					},
+				},
+				git_branches = {
+					mappings = {
+						i = {
+							["<CR>"] = function(prompt_bufnr)
+								local selection = require("telescope.actions.state").get_selected_entry()
+								require("telescope.actions").close(prompt_bufnr)
+								vim.fn.system("git checkout " .. vim.fn.shellescape(selection.value))
+							end,
+						},
+						n = {
+							["<CR>"] = function(prompt_bufnr)
+								local selection = require("telescope.actions.state").get_selected_entry()
+								require("telescope.actions").close(prompt_bufnr)
+								vim.fn.system("git checkout " .. vim.fn.shellescape(selection.value))
+							end,
+						},
+					},
+				},
 			},
 		})
 
@@ -93,5 +152,8 @@ return {
 		keymap.set("n", "<leader>gbc", "<cmd>Telescope git_bcommits<cr>", { desc = "Show buffer commits" })
 		keymap.set("n", "<leader>gbb", "<cmd>Telescope git_branches<cr>", { desc = "Show Git branches" })
 		keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>", { desc = "Show Git status" })
+		keymap.set("n", "<leader>gsh", "<cmd>Telescope git_stash<cr>", { desc = "Show git stashes" })
+		keymap.set("n", "<leader>gbr", "<cmd>Telescope git_bcommits_range<cr>", { desc = "Show buffer commits range" })
+		keymap.set("v", "<leader>gbr", "<cmd>Telescope git_bcommits_range<cr>", { desc = "Show buffer commits range" })
 	end,
 }
