@@ -1,0 +1,19 @@
+# Stow ignore file - files/patterns listed here will not be symlinked
+# Uses Perl regex patterns
+
+# Project documentation
+CLAUDE\.md
+
+# Git files (already ignored by default, but being explicit)
+\.git
+\.gitignore
+
+# Log files/directories
+log
+
+# Other common files to ignore
+README\.md
+LICENSE
+
+# Claude global memory
+claude-bakcup

@@ -1,0 +1,2 @@
+- In all interaction and commit messages, be extremely concise and sacrifice grammar for the sake of concision
+- If you need to draw flow diagram, draw it in the markdown format
