@@ -25,6 +25,10 @@ alias tks="tmux kill-ses -t"
 
 # Claude Code
 alias cc="claude"
+alias ccd="claude --dangerously-skip-permissions"
+
+# Clear terminal
+alias c="clear"
 
 # ---- Zoxide (better cd)
 eval "$(zoxide init zsh)"

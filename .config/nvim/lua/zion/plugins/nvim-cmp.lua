@@ -25,6 +25,9 @@ return {
 		-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
 		require("luasnip.loaders.from_vscode").lazy_load()
 
+		-- load custom lua snippets
+		require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/snippets" })
+
 		cmp.setup({
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",

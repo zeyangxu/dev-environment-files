@@ -9,13 +9,13 @@ return {
 
 		aerial.setup({
 			-- Priority list of preferred backends for aerial.
-			backends = { "lsp", "treesitter", "markdown", "asciidoc", "man" },
+			backends = { "treesitter", "lsp", "markdown", "asciidoc", "man" },
 
 			layout = {
 				max_width = { 40, 0.2 },
 				width = nil,
 				min_width = 20,
-				default_direction = "prefer_right",
+				default_direction = "prefer_left",
 				placement = "window",
 			},
 
