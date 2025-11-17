@@ -49,10 +49,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		opts.desc = "Restart LSP"
 		keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+
+		-- Enable inlay hints if supported
+		if vim.lsp.inlay_hint then
+			vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+		end
+
+		-- Toggle inlay hints
+		opts.desc = "Toggle inlay hints"
+		keymap.set("n", "<leader>th", function()
+			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = ev.buf }), { bufnr = ev.buf })
+		end, opts)
 	end,
 })
-
--- vim.lsp.inlay_hint.enable(true)
 
 local severity = vim.diagnostic.severity
 
