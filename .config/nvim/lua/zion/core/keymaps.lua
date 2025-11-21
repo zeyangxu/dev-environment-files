@@ -41,3 +41,6 @@ keymap.set("n", "<leader>q", ":qa<CR>", { desc = "Quit Neovim" })
 
 -- save
 keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save current file" })
+
+-- toggle line wrap
+keymap.set("n", "<leader>tw", ":set wrap!<CR>", { desc = "Toggle line wrap" })
