@@ -15,6 +15,7 @@ Personal dotfiles for macOS development environment using GNU Stow for symlink m
 ## Installation & Setup
 
 **Prerequisites** (via Homebrew):
+
 ```bash
 brew install --cask wezterm
 brew tap homebrew/cask-fonts
@@ -25,32 +26,32 @@ brew install bat git-delta tlrc stow
 ```
 
 **TPM** (Tmux Plugin Manager):
+
 ```bash
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 **Yazi theme**:
+
 ```bash
 git clone https://github.com/BennyOe/tokyo-night.yazi.git ~/dotfiles/.config/yazi/flavors/tokyo-night.yazi
 ```
 
-**fzf-git**:
-```bash
-cd ~ && git clone https://github.com/junegunn/fzf-git.sh.git
-```
-
 **Deploy dotfiles**:
+
 ```bash
 cd ~/dotfiles && stow .
 ```
 
 **Post-install**:
+
 - Bat: `bat cache --build`
 - Tmux: `Ctrl-A Shift-I` (install plugins)
 
 ## Key Configuration Files
 
 ### Tmux (.tmux.conf)
+
 - Prefix: `Ctrl-A` (not default `Ctrl-B`)
 - Split: `|` (vertical), `-` (horizontal)
 - Resize: `h/j/k/l` (by 5 units)
@@ -58,7 +59,9 @@ cd ~/dotfiles && stow .
 - Plugins: vim-tmux-navigator, tokyo-night theme, resurrect, continuum
 
 ### Zsh (.zshrc)
+
 Key aliases:
+
 - `ls/ll/lt/l`: eza variants
 - `lg`: lazygit
 - `ta/tas/tl/tn/tns/tks`: tmux shortcuts
@@ -67,6 +70,7 @@ Key aliases:
 - `rub/rs/rsp/rsc/rrs/rb/ra`: Rush monorepo commands
 
 Tools configured:
+
 - Powerlevel10k prompt
 - zoxide (better cd)
 - fzf with fd integration
@@ -76,6 +80,7 @@ Tools configured:
 ### Neovim (.config/nvim)
 
 **Structure**:
+
 - `lua/zion/core/`: Basic options, keymaps, autocmds
 - `lua/zion/plugins/`: Plugin configs (managed by lazy.nvim)
 - `lua/zion/lsp.lua`: LSP keybindings
@@ -86,6 +91,7 @@ Tools configured:
 **Formatters**: prettierd, stylua
 
 **Key plugins**:
+
 - lazy.nvim (plugin manager)
 - mason.nvim + mason-lspconfig
 - nvim-cmp (completion)
@@ -98,12 +104,14 @@ Tools configured:
 - tokyo-night theme
 
 **Custom keybindings** (check lua/zion/lsp.lua and plugin configs):
+
 - LSP: `gd`, `gD`, `gr`, `gt` (definitions/references/types)
 - Code actions: `<leader>ca`
 - Rename: `<leader>rn`
 - Diagnostics: `<leader>D` (buffer), `<leader>d` (line)
 
 ### Yazi (.config/yazi)
+
 - Theme: Tokyo Night
 - Keymap customizations in keymap.toml
 - Use `y` command in shell to launch with cd-on-quit
@@ -111,6 +119,7 @@ Tools configured:
 ## Development Workflow
 
 When editing configs:
+
 1. **Neovim plugins**: Modify files in `.config/nvim/lua/zion/plugins/`, Lazy.nvim auto-manages
 2. **Tmux**: Edit `.tmux.conf`, reload with `Ctrl-A r` or restart tmux
 3. **Zsh**: Edit `.zshrc`, reload with `source ~/.zshrc`
@@ -119,6 +128,7 @@ When editing configs:
 ## Git Configuration
 
 Required in `~/.gitconfig` for git-delta:
+
 ```
 [core]
     pager = delta

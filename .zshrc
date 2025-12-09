@@ -30,6 +30,18 @@ alias ccd="claude --dangerously-skip-permissions"
 # Clear terminal
 alias c="clear"
 
+# jq
+alias jqs="jq --stream" # stream key-value pair
+alias jqc="jq -c" # compress
+alias jqf="jq ." # format
+
+# Git
+alias gst="git status"
+alias gch="git checkout"
+alias gcm="git commit -m"
+alias gp="git push"
+alias gpf="git push --force-with-lease"
+
 # ---- Zoxide (better cd)
 eval "$(zoxide init zsh)"
 
