@@ -142,6 +142,7 @@ return {
 					["h"] = "actions.left",
 					["l"] = "actions.right",
 					["<C-c>"] = "actions.close",
+					["q"] = "actions.close",
 				},
 			},
 

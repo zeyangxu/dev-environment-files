@@ -155,5 +155,29 @@ return {
 		keymap.set("n", "<leader>gsh", "<cmd>Telescope git_stash<cr>", { desc = "Show git stashes" })
 		keymap.set("n", "<leader>gbr", "<cmd>Telescope git_bcommits_range<cr>", { desc = "Show buffer commits range" })
 		keymap.set("v", "<leader>gbr", "<cmd>Telescope git_bcommits_range<cr>", { desc = "Show buffer commits range" })
+		keymap.set("n", "<leader>gB", function()
+			require("telescope.builtin").git_branches({
+				attach_mappings = function(_, map)
+					map({ "n", "i" }, "<CR>", function(prompt_bufnr)
+						local selection = require("telescope.actions.state").get_selected_entry()
+						require("telescope.actions").close(prompt_bufnr)
+						vim.cmd("DiffviewOpen " .. selection.value)
+					end)
+					return true
+				end,
+			})
+		end, { desc = "Diff against branch" })
+		keymap.set("n", "<leader>gC", function()
+			require("telescope.builtin").git_commits({
+				attach_mappings = function(_, map)
+					map({ "n", "i" }, "<CR>", function(prompt_bufnr)
+						local selection = require("telescope.actions.state").get_selected_entry()
+						require("telescope.actions").close(prompt_bufnr)
+						vim.cmd("DiffviewOpen " .. selection.value)
+					end)
+					return true
+				end,
+			})
+		end, { desc = "Diff against commit" })
 	end,
 }
