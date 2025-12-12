@@ -142,8 +142,42 @@ return {
 		local keymap = vim.keymap -- for conciseness
 
 		keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
+		keymap.set("n", "<leader>fF", function()
+			require("telescope.builtin").find_files({
+				find_command = { "fd", "--type", "d", "--hidden", "--exclude", ".git" },
+				prompt_title = "Select Directory for Find Files",
+				attach_mappings = function(prompt_bufnr, map)
+					local action_state = require("telescope.actions.state")
+					actions.select_default:replace(function()
+						local selection = action_state.get_selected_entry()
+						actions.close(prompt_bufnr)
+						if selection then
+							require("telescope.builtin").find_files({ cwd = selection[1] })
+						end
+					end)
+					return true
+				end,
+			})
+		end, { desc = "Find files in directory" })
 		keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
 		keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
+		keymap.set("n", "<leader>fS", function()
+			require("telescope.builtin").find_files({
+				find_command = { "fd", "--type", "d", "--hidden", "--exclude", ".git" },
+				prompt_title = "Select Directory for Live Grep",
+				attach_mappings = function(prompt_bufnr, map)
+					local action_state = require("telescope.actions.state")
+					actions.select_default:replace(function()
+						local selection = action_state.get_selected_entry()
+						actions.close(prompt_bufnr)
+						if selection then
+							require("telescope.builtin").live_grep({ cwd = selection[1] })
+						end
+					end)
+					return true
+				end,
+			})
+		end, { desc = "Live grep in directory" })
 		keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
 		keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 		keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Fuzzy find buffers" })
